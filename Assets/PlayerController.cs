@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private float movementX;
     private float movementY;
+    public float speed = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,12 +17,17 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        Vector3 movement = new Vector3(movementX, movementY, 0.0f);
+
+        rb.velocity = movement * speed;
     }
 
-    void OnMove(Vector2 movementVector) {
-       
+    void OnMove(InputValue movementValue) {
+       Vector2 movementVector = movementValue.Get<Vector2>();
 
+        movementX = movementVector.x;
+        movementY = movementVector.y;
     }
 }
