@@ -23,7 +23,6 @@ public class WallController : MonoBehaviour
         transform.position += new Vector3(0.0f, 0.0f, -0.2f);
         if (transform.position.z < 50) {
             transform.position = new Vector3(transform.position.x, transform.position.y, 250);
-            print("hello beany");
         }
     }
 }
